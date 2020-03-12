@@ -40,6 +40,9 @@
     <Folder Include="My_Final_Project\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="My_Final_Project\templates\data.html" />
+    <Content Include="My_Final_Project\templates\photoAlbum.html" />
+    <Content Include="My_Final_Project\templates\registar.html" />
     <Content Include="requirements.txt" />
     <Content Include="My_Final_Project\static\content\bootstrap.css" />
     <Content Include="My_Final_Project\static\content\bootstrap.min.css" />

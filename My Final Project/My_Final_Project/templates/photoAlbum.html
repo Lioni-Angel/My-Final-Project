@@ -1,0 +1,103 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table, th, td {
+            border: 2px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+            text-align: center;
+            background-color: pink;
+            color: white;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+<body>
+    <p style="color:lightseagreen">That photo album was my last project and I liked the result so I decided to add it, even that as you can see, it's has nothing to do with the current project. </p>
+    <h5>Enjoy!</h5>
+    <h1>Picturs of cute animals~</h1>
+
+    <table>
+        <table style="width:100%">
+            <tr>
+                <th>Horses:</th>
+                <th>Cats:</th>
+                <th>Wolfs:</th>
+            </tr>
+            <tr>
+                <td>
+                    <img src=" https://www.humanesociety.org/sites/default/files/styles/768x326/public/2019/04/horses-in-field.jpg?h=b1bbae60&itok=YPaVkpBy" />
+                </td>
+                <td>
+                    <img src=" https://i.ytimg.com/vi/6FQsIfE7sZM/maxresdefault.jpg" width="900" height="555" />
+                </td>
+                <td>
+                    <img src=" http://cdn.cnn.com/cnnnext/dam/assets/160309163258-norway-wolves-1.jpg" width="1050" height="750" />
+                </td>
+            </tr>
+            <tr>
+
+                <td>
+                    <img src="https://www.hakaimagazine.com/wp-content/uploads/header-coastal-horses.jpg" width="1400" height="800" />
+                </td>
+                <td>
+                    <img src=" https://www.thefactsite.com/wp-content/uploads/2016/04/cat-facts.jpg" width="850" height="510" />
+                </td>
+                <td>
+                    <img src=" https://cdn0.wideopenspaces.com/wp-content/uploads/2015/04/4190216-gray-wolves-norway.jpg" width="855" height="625" />
+                </td>
+            </tr>
+            <tr>
+
+                <td>
+                    <img src=" http://forhorse.cz/file/show?nl_id=90195&nl_width=500&s_format_to=jpg" />
+                </td>
+                <td>
+                    <img src=" https://1.bp.blogspot.com/-v2g4UoidSRQ/XFb4xCqJhoI/AAAAAAAAB_s/k6pVjX7D9RMxOvEP0y9ng1N-afw_JuHuACKgBGAs/w3440-h1440-p-k-no-nu/red-fox-winter-snow-52-8K.jpg" width="1500" height="750" />
+                </td>
+                <td>
+                    <img src="https://www.thelocal.no/userdata/images/article/1fa7b7f83132c89bdedcb6bef02a83b6f42114e31758345fa191ac57d8547cfe.jpg" >
+                </td>
+            </tr>
+            <tr>
+
+                <td>
+                    <img src="https://images.unsplash.com/photo-1463748465553-80db1e6ff830?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80" />
+                </td>
+                <td>
+                    <img src=" https://mymodernmet.com/wp/wp-content/uploads/archive/DPBP0ZlTrx1SaCcSYiGZ_TwinCats4.jpg" />
+                </td>
+
+                <td>
+                    <img src=" https://image.winudf.com/v2/image/Y29tLk1heEltYWdlcy53aGl0ZVcxX3NjcmVlbl8xXzhnMTN4aDNo/screen-1.jpg?fakeurl=1&type=.jpg" />
+                </td>
+        </table>
+
+</body>
+</html>
+
+
+{% endblock %}

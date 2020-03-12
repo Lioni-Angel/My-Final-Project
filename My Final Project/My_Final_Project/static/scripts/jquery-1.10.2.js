@@ -3920,7 +3920,8 @@ jQuery.extend({
 			type = ( type || "fx" ) + "queue";
 			queue = jQuery._data( elem, type );
 
-			// Speed up dequeue by getting out quickly if this is just a lookup
+			// Speed up dequeue by 
+out quickly if this is just a lookup
 			if ( data ) {
 				if ( !queue || jQuery.isArray(data) ) {
 					queue = jQuery._data( elem, type, jQuery.makeArray(data) );
