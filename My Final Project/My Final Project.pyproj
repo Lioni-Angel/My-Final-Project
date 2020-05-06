@@ -17,6 +17,7 @@
     <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
     <Name>My Final Project</Name>
     <RootNamespace>My Final Project</RootNamespace>
+    <SuppressEnvironmentCreationPrompt>True</SuppressEnvironmentCreationPrompt>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -27,22 +28,29 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="My_Final_Project\Models\LocalDatabaseRoutines.py" />
+    <Compile Include="My_Final_Project\Models\QueryFormStructure.py" />
     <Compile Include="runserver.py" />
     <Compile Include="My_Final_Project\__init__.py" />
     <Compile Include="My_Final_Project\views.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="My_Final_Project\" />
+    <Folder Include="My_Final_Project\Models\" />
     <Folder Include="My_Final_Project\static\" />
     <Folder Include="My_Final_Project\static\content\" />
     <Folder Include="My_Final_Project\static\fonts\" />
+    <Folder Include="My_Final_Project\static\data\" />
     <Folder Include="My_Final_Project\static\scripts\" />
     <Folder Include="My_Final_Project\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="My_Final_Project\static\data\2018 FIFA World Cup Squads.csv" />
+    <Content Include="My_Final_Project\static\data\users.csv" />
     <Content Include="My_Final_Project\templates\data.html" />
     <Content Include="My_Final_Project\templates\photoAlbum.html" />
-    <Content Include="My_Final_Project\templates\registar.html" />
+    <Content Include="My_Final_Project\templates\register.html" />
+    <Content Include="My_Final_Project\templates\login.html" />
     <Content Include="requirements.txt" />
     <Content Include="My_Final_Project\static\content\bootstrap.css" />
     <Content Include="My_Final_Project\static\content\bootstrap.min.css" />
