@@ -269,7 +269,7 @@ window.matchMedia = window.matchMedia || (function(doc, undefined){
 			//inject active styles, grouped by media type
 			for( var i in styleBlocks ){
 				var ss		= doc.createElement( "style" ),
-					css		= styleBlocks[ i ].join( "\n" );
+					css = styleBlocks[i].join("" );
 				
 				ss.type = "text/css";	
 				ss.media	= i;
