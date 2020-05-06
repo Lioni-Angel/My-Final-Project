@@ -2515,7 +2515,8 @@ input[type="button"].btn-block {
   content: "\e020";
 }
 
-.glyphicon-home:before {
+.glyphicon-
+:before {
   content: "\e021";
 }
 

@@ -89,15 +89,6 @@ def data():
         raw_data_table = raw_data_table, 
     )
 
-@app.route('/photoAlbum')
-def photoAlbum():
-    """Renders the contact page."""
-    return render_template(
-        'photoAlbum.html',
-        title='My Photo Album',
-        year=datetime.now().year,
-        message='warning: might be too cute'
-    )
 
 @app.route('/registar', methods=['GET', 'POST'])
 def registar():
@@ -140,3 +131,20 @@ def login():
         year=datetime.now().year,
         repository_name='Pandas',
         )
+
+
+@app.route('/query')
+def data():
+    """Renders the about page."""
+    df = pd.read_csv(path.join(path.dirname(__file__), 'static\\Data\\2018 FIFA World Cup Squads.csv'))
+    raw_data_table = df.to_html(classes = 'table table-hover') 
+
+    return render_template(
+        'query.html',
+        title='You managed to reach my Query page~',
+        year=datetime.now().year,
+        message='Here you can find a graph that describes the ages of the players from the World Cup Squads 2018', 
+
+        raw_data_table = raw_data_table, 
+    )
+

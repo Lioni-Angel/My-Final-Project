@@ -1,0 +1,18 @@
+﻿{% extends "layout.html" %}
+
+{% block content %}
+
+<h2>{{ title }}</h2>
+<h3>{{ message }}</h3>
+
+
+<center><img src="https://media.contentapi.ea.com/content/dam/ea/easports/fifa/features/2018/world-cup-announce-april-30/trophy-hero/f18wc-features-trophy-hero-bg-xs.jpg" width="280" height="200" /></center>
+
+
+<br />
+<br />
+<br />
+<p><a href="https://mail.google.com/mail/u/0?ui=2&ik=df98c32ff9&attid=0.1&permmsgid=msg-a:r1829850075656505055&th=171ebca2fac06f56&view=fimg&sz=s0-l75-ft&attbid=ANGjdJ_OsVUo0T4HIxvUAwIF6PseWKif1cUNBxMoEXVkDSjdGkjbMkLpl5LzSWqfqGGCTv-WTiHynpdxiSlg1qLWYbGbK6aNWnMuuEOcTlWeeAK3KD0TgG_nwZ9-N-Q&disp=emb&realattid=ii_k9vtsr2g0"> Click here</a> to see a graph that describes the age  </p>
+{{ raw_data_table | safe}}
+
+{% endblock %}

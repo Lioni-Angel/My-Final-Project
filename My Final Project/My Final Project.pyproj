@@ -48,7 +48,7 @@
     <Content Include="My_Final_Project\static\data\2018 FIFA World Cup Squads.csv" />
     <Content Include="My_Final_Project\static\data\users.csv" />
     <Content Include="My_Final_Project\templates\data.html" />
-    <Content Include="My_Final_Project\templates\photoAlbum.html" />
+    <Content Include="My_Final_Project\templates\query.html" />
     <Content Include="My_Final_Project\templates\register.html" />
     <Content Include="My_Final_Project\templates\login.html" />
     <Content Include="requirements.txt" />
