@@ -51,7 +51,7 @@ def home():
     return render_template(
         'index.html',
         title='Home Page',
-        year=datetime.now().year,
+        year=datetime.now().year
     )
 
 @app.route('/contact.pg')
@@ -86,7 +86,7 @@ def data():
         year=datetime.now().year,
         message='Here you can find a link for the 2018 FIFA World Cup Squads Data Base', 
 
-        raw_data_table = raw_data_table, 
+        raw_data_table = raw_data_table
     )
 
 
@@ -110,7 +110,7 @@ def registar():
         form=form, 
         title='Register New User',
         year=datetime.now().year,
-        repository_name='Pandas',
+        repository_name='Pandas'
         )
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -129,7 +129,7 @@ def login():
         form=form, 
         title='Login to data analysis',
         year=datetime.now().year,
-        repository_name='Pandas',
+        repository_name='Pandas'
         )
 
 
@@ -140,7 +140,7 @@ def query():
         'query.html',
         title='You managed to reach my Query page~',
         year=datetime.now().year,
-        message='Here you can find a graph', 
+        message='Here you can find a graph'
 
 
     )
