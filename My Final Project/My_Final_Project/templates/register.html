@@ -17,6 +17,31 @@
 <br />
 <br />
 
+<head>
+
+
+    <style>
+    td, tr, table {
+        font-size: 22px
+    }
+
+    h2 {
+        position: relative;
+        left: 450px;
+    }
+
+        body 
+        {
+            background-image: url("https://live.staticflickr.com/8120/8611616166_42ddd8485e_b.jpg");
+        }
+    </style>
+
+
+</head>
+
+
+
+
 <form method=post>
     {{ form.csrf }}
     {{ form.csrf_token }}
@@ -111,15 +136,6 @@
     </table>
 </form>
 
-<style>
-    td, tr, table {
-        font-size: 22px
-    }
 
-    h2 {
-        position: relative;
-        left: 450px;
-    }
-</style>
 
     {% endblock %}

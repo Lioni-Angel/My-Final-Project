@@ -54,7 +54,7 @@ def home():
         year=datetime.now().year
     )
 
-@app.route('/contact.pg')
+@app.route('/contact')
 def contact():
     """Renders the contact page."""
     return render_template(
@@ -77,7 +77,7 @@ def about():
 @app.route('/DataBase')
 def data():
     """Renders the about page."""
-    df = pd.read_csv(path.join(path.dirname(__file__), 'static\\Data\\2018 FIFA World Cup Squads.csv'))
+    df = pd.read_csv(path.join(path.dirname(__file__), 'static\\data\\2018 FIFA World Cup Squads.csv'))
     raw_data_table = df.to_html(classes = 'table table-hover') 
 
     return render_template(
@@ -100,7 +100,9 @@ def registar():
             db_table = ""
 
             flash('Thanks for registering new user - '+ form.FirstName.data + " " + form.LastName.data )
-            # Here you should put what to do (or were to go) if registration was good
+            return redirect('query')
+
+
         else:
             flash('Error: User with this Username already exist ! - '+ form.username.data)
             form = UserRegistrationFormStructure(request.form)
@@ -120,8 +122,11 @@ def login():
     if (request.method == 'POST' and form.validate()):
         if (db_Functions.IsLoginGood(form.username.data, form.password.data)): 
             flash('Login approved!') 
-            #return redirect('<where to go if login is good!') 
-        else:
+            
+            return redirect('query')
+
+
+        else: 
             flash('Error in - Username and/or password') 
    
     return render_template(
@@ -135,7 +140,10 @@ def login():
 
 @app.route('/query')
 def query():
-    
+    df = pd.read_csv(path.join(path.dirname(__file__), 'static\\data\\2018 FIFA World Cup Squads.csv')) 
+    age_series = df['Age'] 
+    age_series.hist()
+
     return render_template(
         'query.html',
         title='You managed to reach my Query page~',
