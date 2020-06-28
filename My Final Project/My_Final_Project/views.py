@@ -2,6 +2,11 @@
 Routes and views for the flask application.
 """
 
+import base64
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+from matplotlib.figure import Figure
+
+
 from datetime import datetime 
 from flask import render_template
 from My_Final_Project import app 
@@ -37,12 +42,16 @@ from wtforms import ValidationError
 from My_Final_Project.Models.QueryFormStructure import QueryFormStructure 
 from My_Final_Project.Models.QueryFormStructure import LoginFormStructure 
 from My_Final_Project.Models.QueryFormStructure import UserRegistrationFormStructure 
+from My_Final_Project.Models.QueryFormStructure import QueryForm
+
+from flask_bootstrap import Bootstrap
 
 #כל אלו הם סיפריות שהוספתי, ועשיתי אימפורטים ("הבאתי" אותם, ו"קראתי להם" גם בשמות קצרים ונוחים יותר), כתבתי אותם בכדי שנוכל להפעיל פקודות מסויימות 
 
 ###from DemoFormProject.Models.LocalDatabaseRoutines import IsUserExist, IsLoginGood, AddNewUser 
 
-db_Functions = create_LocalDatabaseServiceRoutines() 
+db_Functions = create_LocalDatabaseServiceRoutines()
+bootstrap = Bootstrap(app)
 
 
 
@@ -70,7 +79,7 @@ def contact():
         'contact.html',
         title='You have reached to the CONTACT page~',
         year=datetime.now().year,
-        message='<3'
+        message=''
     )
 
 @app.route('/about')
@@ -80,7 +89,7 @@ def about():
         'about.html',
         title='You have reached to the ABOUT page~',
         year=datetime.now().year,
-        message='Here, you can get to know everything the project' 
+        message='Here, you can get to know everything about the project' 
     ) 
 
 @app.route('/DataBase')
@@ -105,12 +114,11 @@ def data():
 @app.route('/registar', methods=['GET', 'POST'])
 def registar():
     form = UserRegistrationFormStructure(request.form)
-    #?
 
     if (request.method == 'POST' and form.validate()): 
-        #אם ?
+        #אם 
         if (not db_Functions.IsUserExist(form.username.data)):
-            #אז ש?
+            #אז ש
             db_Functions.AddNewUser(form)
             db_table = ""
 
@@ -133,7 +141,7 @@ def registar():
         title='Register New User',
         year=datetime.now().year,
         repository_name='Pandas'
-
+            
         )
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -159,38 +167,41 @@ def login():
         )
 
 
-@app.route('/query')
+@app.route('/query', methods = ['GET' , 'POST'])
 def query():
 
+    form = QueryForm()
+    chart = ''
     df = pd.read_csv(path.join(path.dirname(__file__), 'static\\data\\2018 FIFA World Cup Squads.csv')) 
+    s = set(df['Team'].to_list())
+    l = list(s)
+    l = list(zip(l,l))
+    form.countries.choices = l
 
-    surveys_df = pd.read_csv(path.join(path.dirname(__file__), 'static\\data\\2018 FIFA World Cup Squads.csv'),
-                         keep_default_na=False, na_values=[""])
-    
-    pd.options.display.max_rows = 25
-#גודל מקסימלי
-
-    df.head()
-    cap = df['Caps']
-
-    print("This is the biggest amount of caps, earned by ONE PLAYER: ")
-    cap.max()
-
-    print("This is the average amount of all the caps togeter: ")
-    cap.mean() 
-
-    print("This is the smallest amount of caps that was earned by one player: ")
-    cap.min()
-
-
-
-    df_total = df.groupby(['Team']).sum()
+    if request.method == 'POST':
+        countries_list = form.countries.data
+        df = df[['Team' , 'Caps', 'Goals', 'Age']]
+        df = df.groupby('Team').mean()
+        df = df.loc[countries_list]
+        fig = plt.figure()
+        ax = fig.add_subplot(111)
+        fig.subplots_adjust(bottom=0.4)
+        df.plot(kind = 'bar', ax = ax)
+        chart = plot_to_img(fig)
 
     return render_template(
         'query.html',
         title='You managed to reach my Query page~',
         year=datetime.now().year,
-        message='Here you can find a graph'
-
+        message='Here you can find the graph', 
+        form = form,
+        chart = chart
 
     )
+
+def plot_to_img(fig):
+    pngImage = io.BytesIO()
+    FigureCanvas(fig).print_png(pngImage)
+    pngImageB64String = "data:image/png;base64,"
+    pngImageB64String += base64.b64encode(pngImage.getvalue()).decode('utf8')
+    return pngImageB64String

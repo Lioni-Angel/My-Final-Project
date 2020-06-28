@@ -1,43 +1,53 @@
 ﻿{% extends "layout.html" %}
 
+{% import "bootstrap/wtf.html" as wtf %}
+
 {% block content %}
 
 <h2>{{ title }}</h2>
 <h3>{{ message }}</h3>
 
-
-
-
-<head>
-
-
-    <style>
-        body 
-        {
-            background-image: url("https://pngriver.com/wp-content/uploads/2018/04/Download-Field-Transparent-Background.png");
-        }
-    </style>
-
-
-</head>
-
-
-
-
+<style>
+    body 
+    {
+        background-image: url("https://storage.needpix.com/rsynced_images/gradient-826983_1280.jpg");
+    }
+</style>
 
 <center><img src="https://media.contentapi.ea.com/content/dam/ea/easports/fifa/features/2018/world-cup-announce-april-30/trophy-hero/f18wc-features-trophy-hero-bg-xs.jpg" width="280" height="200" /></center>
 
+<br />
+<br />
+<br />
+
+<center><p style="color: deeppink"> <h3> Here you can "make" a graph that will describes: <br /> the <b>Ages</b> average, the <b>Goals</b> average, and the <b>Caps</b> average <br /> of the players, by teams, from the <b>World Cup Squads 2018~ </b> </h3> </p> </center>
 
 <br />
 <br />
-<br />
-<center><p style="color:deeppink"><b><a href="https://mail.google.com/mail/u/0?ui=2&ik=df98c32ff9&attid=0.1&permmsgid=msg-a:r1829850075656505055&th=171ebca2fac06f56&view=fimg&sz=s0-l75-ft&attbid=ANGjdJ_OsVUo0T4HIxvUAwIF6PseWKif1cUNBxMoEXVkDSjdGkjbMkLpl5LzSWqfqGGCTv-WTiHynpdxiSlg1qLWYbGbK6aNWnMuuEOcTlWeeAK3KD0TgG_nwZ9-N-Q&disp=emb&realattid=ii_k9vtsr2g0" target="_blank"> Click here</a> to see a graph that describes the ages of the players from the World Cup Squads 2018~ </b> </p> </center>
-<br />
-<br />
-<center><p style="color:slateblue"><b> by this graph, you can easly observe and notice that most of the players are between the ages: 25 - 30, <br />and by that information, I can infer that the ideal age to be a soccer player is between that range! </b></p></center>
+
+<center><p style="color: slateblue"> <b> by this graph, you can easly observe and see that the country hows players have the most caps (by average for player) is Panama, <br /> thanks to that, I can tell that Panama's playres has (in averge) the most appearance (in games at international level).  </b></p></center>
+
+<center><p style="color: crimson"> <b> you can also see that most of the players are between the ages: 20 - 30, <br /> and by that information, I can infer that the ideal age to be a soccer player is between that range! </b></p></center>
+
+<div class="row">
+
+    <div class="col-md-4">
+        <form method="post">
+            {{ form.csrf_token }}
+            {{ wtf.form_field(form.countries)}}
+            <input class="btn btn-primary" type="submit" value="submit">
+        </form>
+    </div>
+    <div class="col-md-8">
+        <div class="row">
+            <h2>Medals by Discipline</h2>
+            <img src={{ chart }} class="https://cdn.iconscout.com/icon/premium/png-256-thumb/football-championship-1-1047782.png">
+        </div>
+    </div>
+</div>
 
 
-
+<center><p style="color: crimson"> <b> **To choose multiple countries, press the 'Ctrl' botten + left click  </b></p></center>
 
 
 {% endblock %}

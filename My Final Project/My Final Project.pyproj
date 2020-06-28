@@ -32,7 +32,9 @@
     <Compile Include="My_Final_Project\Models\QueryFormStructure.py" />
     <Compile Include="runserver.py" />
     <Compile Include="My_Final_Project\__init__.py" />
-    <Compile Include="My_Final_Project\views.py" />
+    <Compile Include="..\..\..\..\Desktop\views\views.py">
+      <Link>My_Final_Project\views.py</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="My_Final_Project\" />
